@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>update</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <style>
+           body{
+               display:flex;
+               flex-direction:column;
+               justify-content:center;
+               align-items:center;
+               min-height:100dvh;
+               background-color:aliceblue;
+               box-sizing:border-box;
+           }
+           label{
+               display:block;
+               margin-top:20px
+           }
+           .container{
+               background-color:white;
+               width:clamp(200px,90vw,600px);
+               display:flex;
+               flex-direction:column;
+               justify-content:center;
+               align-items:center;
+               border-radius:20px;
+               padding-top:20px;
+               padding-bottom:30px;
+               font-size:clamp(18px,5vw,25px);
+              box-sizing:border-box;
+          }
+         .container input{
+              width:clamp(200px,70vw,300px);
+              height:clamp(35px,6dvh,50px);
+              border-radius:10px;
+              border:1px solid grey;
+              outline:none
+          }
+          .reg{
+              background-color:lightgreen;
+              color:green;
+              width:clamp(200px,70vw,300px);
+              border-radius:10px;
+              display:flex;
+              justify-content:center;
+              align-items:center;
+              font-size:clamp(18px,5vw,25px);
+              box-sizing:border-box;
+          }
+          .btn{
+              width:clamp(200px,70vw,300px);
+              display:flex;
+              justify-content:center
+          }
+          button{
+              width:clamp(100px,50vw,200px);
+              height:clamp(35px,6dvh,50px);
+              border-radius:10px;
+              background-color:lightgreen;
+              border:none;
+              color:green;
+              font-size:clamp(18px,5vw,28px)
+          }
+          .container input:focus{
+              border:2px solid lightgreen;
+              box-shadow:0px 0px 7px lightgreen
+          }
+          .home{
+              width:clamp(200px,90vw,600px);
+              display:flex;
+              justify-content:space-between;
+              position:fixed;
+              top:10px;
+              
+              box-sizing:border-box;
+              font-size:clamp(18px,5vw,28px)
+          }
+          a{
+              color:green
+          }
+          .succeed{
+              position:fixed;
+              top:40px;
+              background-color:white;
+               width:clamp(200px,90vw,600px);
+               display:flex;
+               justify-content:center;
+               align-items:center;
+               font-size:clamp(18px,5vw,25px);
+               color:green;
+               border-radius:8px;
+          }
+          .fail{
+              position:fixed;
+              top:40px;
+              background-color:white;
+               width:clamp(200px,90vw,600px);
+               display:flex;
+               justify-content:center;
+               align-items:center;
+               font-size:clamp(18px,5vw,25px);
+               color:red;
+               border-radius:8px;
+          }
+          .nav{
+              border:1px solid lightgreen;
+              border-radius:10px;
+              padding-left:clamp(20px,5vw,30px);
+              padding-right:clamp(20px,5vw,30px);
+              padding-bottom:10px;
+              padding-top:10px;
+              font-size:clamp(18px,5vw,25px)
+          }
+          .nav:hover{
+              background-color:lightgreen;
+              box-shadow: 0px 0px 10px green;
+              color:white;
+              transition:1s
+          }
+        </style>
+    </head>
+    <body>
+        <div class="home">
+            <a href="/home" class="nav">Home</a>
+            <a href="/adminpage" class="nav">Admin</a>
+        </div>
+        {% for category,message in get_flashed_messages(with_categories=True) %}
+        <div class="{{ category }}">
+            <p>{{ message }}</p>
+        </div>
+        {% endfor %}
+        <div class="container">
+            <div class="reg">
+                <p><b>UPDATE CREDENTIALS</b></p>
+            </div>
+            <form action=" " method="POST">
+               <label for="email"><b>Email</b></label>
+               <input type="email" placeholder="Enter your email✉️" name="email" required>
+               
+              <label for="password"><b>New_Password</b></label>
+              <input type="number" placeholder="Enter your password" name="password" required>
+              <label></label>
+              <div class="btn">
+              <button class="submit"><b>Update</b></button>
+              </div>
+            </form>
+        </div>
+        
+    </body>
+  </html>
